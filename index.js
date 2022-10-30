@@ -26,9 +26,21 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 async function run() {
         try {
             const userCollection = client.db('simpleNode').collection('users'); 
-            const user = {name: 'nahia Mahi', email: 'nahi@gmail.com'}
+            // const user = {name: 'nahia Mahi', email: 'nahi@gmail.com'}
             // const result =  await userCollection.insertOne(user)
             // console.log(result)
+         
+         
+            app.get('/users', async (req, res)=> {
+                const cursor = userCollection.find({}); 
+                const users = await cursor.toArray(); 
+                res.send(users)
+
+            })
+         
+         
+         
+         
             app.post('/users', async(req, res) => {
                 const user = req.body; 
                 // user.id == users.length + 1; 
@@ -38,7 +50,7 @@ async function run() {
                 // console.log(user); 
                 const result = await userCollection.insertOne(user); 
                 console.log(result)
-                user.id = result.insertedId
+                user._id = result.insertedId
                 res.send(user)
             })
         }

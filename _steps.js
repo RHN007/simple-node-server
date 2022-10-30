@@ -7,3 +7,22 @@
  5. Make sure to ue JSON.Stringify to send data 
  6. use express.json as middleware (IMPORTANT)
  */
+
+
+
+ /**
+  * Sign up mondDB atlas 
+  * dba user
+  * whitelist you ip address ; 
+  * database> Connect > show entire code 
+  * npm i mongodb
+  */
+
+ /**
+  * Insert: 
+  */
+
+
+ /**
+  Find: 
+  */
